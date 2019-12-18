@@ -1,0 +1,1 @@
+Queue is a linear data structure where the first element is inserted from one end called REAR and deleted from the other end called as FRONT. ... In a queue, one end is always used to insert data (enqueue) and the other is used to delete data (dequeue), because queue is open at both its ends.
