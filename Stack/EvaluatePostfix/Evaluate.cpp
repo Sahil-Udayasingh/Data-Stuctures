@@ -1,38 +1,91 @@
-#include<bits/stdc++.h>
-using namespace std;
+/*****************************************************
+           EVALUATION OF POSTFIX EXPRESSION
+******************************************************/           
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+#define n 100
 
-int evaluate(string s)
+int top;
+void push(int A[],int x)
 {
-	std::stack<char> st;
-	int l=s.length();
-	
-	for(int i=0;i<l;i++)
+	if(top==(n-1))
+		printf("stack is Full");
+	else
 	{
-		if(isdigit(s[i]))
-		//if(s[i]>='0'&&s[i]<='9')
+		top++;
+		A[top]=x;
+	}
+}
+int pop(int A[])
+{
+	if(top==-1)
+	{
+		printf("stack is empty");
+		return(0);
+	}
+	else
+	{
+		int y;
+		y=A[top];
+		top--;
+		return(y);
+	}
+}
+
+main()
+{
+	char st[100],c;
+	int i,j,a,l,b,z;
+	top=-1;
+	printf("\n\nEnter expression");
+	scanf("%s",st);
+       //i=atoi(st);
+       //i=st[0]+st[1];
+	//printf("\t\t%d",st[0]);
+	int A[100];
+	l=strlen(st);
+	i=0;
+	//printf("%d",l);
+	//getch();
+	while(i<l)
+	{
+
+
+		if(st[i]>=48 && st[i]<=57)
 		{
-		st.push(s[i]);
+			j=st[i]-48;
+			push(A,j);
 		}
 		else
 		{
-			int a=st.top();
-			st.pop();
-			int b=st.top();
-			st.pop();
-			switch(s[i])
-			{
-			case '+': st.push(a+b); break;  
-            case '-': st.push(a-b); break;
-            case '*': st.push(a*b); break;
-            case '/': st.push(a/b); break;
-			}
+			a=pop(A);
+			b=pop(A);
+			c=st[i];
+			//printf("\na=%d\tb=%d\tc=%c",a,b,c);
+         //getch();
+			if(c=='+')
+				z=a+b;
+			if(c=='-')
+				z=b-a;
+			if(c=='*')
+				z=a*b;
+			if(c=='/')
+				z=b/a;
+
+
+
+
+			push(A,z);
 		}
+		i++;
 	}
-	return st.top();
+
+	printf("\nvalue= %d",pop(A));
+		//j=st[i];
+	       //push(j);
+
+
+	getch();
 }
-int main()  
-{  
-    string exp = "82+";  
-    cout<<"postfix evaluation: "<< evaluate(exp);  
-    return 0;  
-}  
