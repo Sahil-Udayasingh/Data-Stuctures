@@ -1,4 +1,4 @@
-//You are given an undirected graph and a number of vertex pairs. Print “yes” if the vertex pairs are path connected, “no” otherwise. Two vertices are called as path connected if there is at least one path that connects them
+//You are given an undirected graph and a number of vertex pairs. Print â€œyesâ€ if the vertex pairs are path connected, â€œnoâ€ otherwise. Two vertices are called as path connected if there is at least one path that connects them
 #include<stdio.h>
 struct node
 {
