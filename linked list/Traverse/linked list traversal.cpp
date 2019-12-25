@@ -50,7 +50,7 @@ void printlink(struct node *n)
         n=n->next;
     }
 }
-void print(struct node *n)
+void print(struct node *n) //Function to predict the maximum sum of a consecutive pair.
 {
     int sum,max=-99999;
     int a,b;
